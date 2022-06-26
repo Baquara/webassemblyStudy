@@ -1,0 +1,43 @@
+(module
+
+(func $print_hello (export "print_hello")
+
+(print "hello world!")
+
+)
+
+(func $sum (export "sum")
+
+(param $x i32)
+
+(param $y i32)
+
+(result i32)
+
+(i32.add
+
+(get_local $x)
+
+(get_local $y)
+
+)
+
+)
+
+(func $main (export "main")
+
+(call $print_hello)
+
+(call $sum
+
+(i32.const 2)
+
+(i32.const 3)
+
+)
+
+(print (get_local 0))
+
+)
+
+)
